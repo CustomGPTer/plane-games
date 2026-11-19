@@ -1,8 +1,9 @@
 # Plane Games: licence and credits
 
-Plane Games is free software under the GNU General Public License, version 3
-or later (see `LICENSE`). You may use, share and change it under those terms.
-The source for every released version is published alongside the app.
+© 2026 Jonathan Jackson. All rights reserved. The app's own source code is not
+published. The chess computer and the chess pieces are free software under the
+GNU General Public License; their complete source code is in
+`third-party-sources/plane-games-third-party-sources.zip`, also published on the website.
 
 It is built on these works, used under their own licences:
 

@@ -40,42 +40,11 @@ it links two phones at a time. It is new; if something does not work on your pho
 
 - The website, at the top level (`index.html` and the pages beside it, with `assets/`). GitHub Pages
   serves it from the `main` branch.
-- `web/`: the games and every screen, written in TypeScript with Preact and built with Vite.
-- `android/`: a small Kotlin shell. It shows the bundled games in a web view and gives them the things only
-  the phone can do: the Nearby Connections link, storage, vibration, sending the app to another phone,
-  scanning a link code, backup files and the update check.
 - The `dist` branch holds the released app file and its notes. The Release workflow publishes from it.
-
-## Building
-
-Needs Node 20 or newer, JDK 17 or newer and the Android SDK (platform 35, build-tools 35). Put the SDK path
-in `android/local.properties` as `sdk.dir=...`, then:
-
-    cd web && npm install && cd ..
-    ./build.sh
-
-The app file lands in `android/app/build/outputs/apk/release/`. Signing reads `android/keystore.properties`
-(`storeFile`, `storePassword`, `keyAlias`, `keyPassword`); without that file the build is unsigned. The
-signing key is not in this repository.
-
-## Tests
-
-    cd web
-    npx vitest run          # the rules of every game, the computer players, backup, cups
-    npx vite build
-    node tools/local.mjs    # one phone: plays games by taps in headless Chrome
-    node tools/e2e.mjs      # two phones: link, play, drop the link, restart, resume
-    node tools/b2.mjs       # chess with Stockfish, snakes and ladders, dice over the link
-    node tools/b3.mjs       # ludo, backgammon, dominoes, alone and over the link
-    node tools/b4.mjs       # the one-player games, battleships, hangman, dots and boxes
-    node tools/b5.mjs       # pool: 9-ball and 8-ball by touch, upright, left-handed, two phones
-    node tools/b6.mjs       # hints, head starts, clocks, replays, players, backup, the Flight Cup
-
-The play-through scripts need Google Chrome at `/usr/bin/google-chrome`. Run them one at a time. The
-two-phone tests use a stand-in radio (two browser tabs) in place of Bluetooth; everything above the radio is
-the real code.
 
 ## Licence
 
-© 2026 Jonathan Jackson. Published under the GNU General Public License, version 3 or later (see `LICENSE`).
-The work it is built on is credited in `NOTICE.md`.
+© 2026 Jonathan Jackson. All rights reserved. The app's own source code is not published.
+The work it is built on is credited in `NOTICE.md`. The chess computer (Stockfish.js) and the chess
+pieces are free software under the GNU General Public License; their complete source code is in
+`third-party-sources/plane-games-third-party-sources.zip`, also published on the website.
